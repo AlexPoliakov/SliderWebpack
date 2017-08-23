@@ -1,0 +1,89 @@
+html,
+body {
+    height: 100%;
+    width: 1020px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+* {
+    outline: 0 !important;
+}
+
+
+.box_slider {
+    width: 300px;
+    margin: 50px auto;
+}
+
+.title {
+    text-align: center;
+}
+
+.slider {
+    width: 310px;
+    height: 15px;
+    margin: 5px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background: rgb(100,100,100) radial-gradient(circle at 0 0, rgba(255,255,255,.65), rgba(255,255,255,.35));
+    box-shadow:
+            inset rgba(0,0,0,.5) -3px -3px 8px,
+            inset rgba(255,255,255,.9) 3px 3px 8px,
+            rgba(0,0,0,.8) 3px 3px 8px -3px;
+}
+
+.slider__thumb {
+    width: 15px;
+    height: 25px;
+    border-radius: 3px;
+    position: relative;
+    left: 0;
+    top: -5px;
+    background: blue;
+    cursor: pointer;
+    box-shadow:
+            inset rgba(0,0,0,.5) -3px -3px 8px,
+            inset rgba(255,255,255,.9) 3px 3px 8px,
+            rgba(0,0,0,.8) 3px 3px 8px -3px;
+}
+
+.slider_show {
+    border-radius: 5px;
+    padding: 5px;
+    display: inline-block;
+    background: yellow;
+    margin: 40px auto;
+    width: 120px;
+    color: indianred;
+    font-size: 18px;
+    box-shadow:
+            inset rgba(0,0,0,.5) -3px -3px 8px,
+            inset rgba(255,255,255,.9) 3px 3px 8px,
+            rgba(0,0,0,.8) 3px 3px 8px -3px;
+}
+
+.volume {
+    color: green;
+}
+
+.pre_input {
+    color: indianred;
+    font-size: 18px;
+}
+
+.slider_but {
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    font: italic 14px/1.3 arial, sans-serif;
+    margin: 1em auto;
+    padding: 1em;
+    border-radius: 10px;
+    background: rgb(100,100,100) radial-gradient(circle at 0 0, rgba(255,255,255,.65), rgba(255,255,255,.35));
+    box-shadow:
+            inset rgba(0,0,0,.5) -3px -3px 8px,
+            inset rgba(255,255,255,.9) 3px 3px 8px,
+            rgba(0,0,0,.8) 3px 3px 8px -3px;
+
+}

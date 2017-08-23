@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "start": "webpack",
+    "serv": "static build"
+  },
+  "devDependencies": {
+    "node-static": "^0.7.9",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "css-loader": "^0.28.5",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^10.0.0",
+    "postcss-loader": "^2.0.6",
+    "style-loader": "^0.18.2",
+    "sugarss": "^1.0.0"
+  }
+}
