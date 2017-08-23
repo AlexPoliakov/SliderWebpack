@@ -1,6 +1,6 @@
-`use strict`;
+'use strict';
 
-export default class Slider {
+module.exports = class Slider {
     constructor(options) {
         this._elem = options.elem;
         this._elemCapture = this._elemCapture.bind(this);

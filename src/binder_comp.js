@@ -1,9 +1,9 @@
-`use strict`;
+'use strict';
 import Slider from './slider.js';
 import NumericInput from './num_slider.js'
 import '../style/src.css';
 
-export class BinderComponent {
+class BinderComponent {
     constructor(option) {
         this.elem = option.elem;
         this.sliderElem = this.elem.querySelector(`.slider`);

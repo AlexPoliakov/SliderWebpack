@@ -1,79 +1,77 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/assets/";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
-/******/ })
-/************************************************************************/
-/******/ ([
+webpackJsonp([0],[
 /* 0 */
+/*!************************!*\
+  !*** ./binder_comp.js ***!
+  \************************/
+/*! exports provided:  */
+/*! all exports used */
+/*! ModuleConcatenation bailout: Module is an entry point */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__slider_js__ = __webpack_require__(/*! ./slider.js */ 1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__slider_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__slider_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__num_slider_js__ = __webpack_require__(/*! ./num_slider.js */ 2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__num_slider_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__num_slider_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_src_css__ = __webpack_require__(/*! ../style/src.css */ 3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_src_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__style_src_css__);
 
-// CONCATENATED MODULE: ./slider.js
-`use strict`;
 
-class Slider {
+
+
+
+class BinderComponent {
+    constructor(option) {
+        this.elem = option.elem;
+        this.sliderElem = this.elem.querySelector(`.slider`);
+        this.thumbElem = this.elem.querySelector(`.slider__thumb`);
+
+        this.sliderComponent = new __WEBPACK_IMPORTED_MODULE_0__slider_js___default.a({elem: this.elem});
+        this.numComponent = new __WEBPACK_IMPORTED_MODULE_1__num_slider_js___default.a({elem: this.elem.querySelector(`.slider_show`)});
+
+        this.setValueInInput = this.setValueInInput.bind(this);
+        this.setThumb = this.setThumb.bind(this);
+        this.halfVolume = this.halfVolume.bind(this);
+
+        this.elem.addEventListener(`setting`, this.setValueInInput);
+        this.elem.addEventListener(`setlength`, this.setThumb);
+        this.elem.addEventListener(`click`, this.halfVolume);
+    }
+
+    setValueInInput(event) {
+        this.elem.querySelector(`.slider_show`).value = event.detail.value;
+    }
+
+    setThumb(event) {
+        this.elem.querySelector(`.slider__thumb`).style.left = event.detail.length;
+    }
+
+    halfVolume(event) {
+        this.target = event.target;
+        if (!this.target.classList.contains(`slider_but`)) return;
+        this.sliderComponent.setValue((this.sliderElem.offsetWidth - this.thumbElem.offsetWidth) / 2);
+    }
+
+}
+
+new BinderComponent({elem: document.querySelector(`.box_slider`)});
+
+
+/***/ }),
+/* 1 */
+/*!*******************!*\
+  !*** ./slider.js ***!
+  \*******************/
+/*! no static exports found */
+/*! exports used: default */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = class Slider {
     constructor(options) {
         this._elem = options.elem;
         this._elemCapture = this._elemCapture.bind(this);
@@ -160,10 +158,21 @@ class Slider {
 }
 
 
-// CONCATENATED MODULE: ./num_slider.js
-`use strict`;
 
-class NumericInput {
+/***/ }),
+/* 2 */
+/*!***********************!*\
+  !*** ./num_slider.js ***!
+  \***********************/
+/*! no static exports found */
+/*! exports used: default */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = class NumericInput {
     constructor(options) {
         this.elem = options.elem;
         this.slider = document.querySelector(`.slider`);
@@ -206,60 +215,17 @@ class NumericInput {
 }
 
 
-// EXTERNAL MODULE: ../style/src.css
-var src = __webpack_require__(1);
-var src_default = /*#__PURE__*/__webpack_require__.n(src);
-
-// CONCATENATED MODULE: ./binder_comp.js
-`use strict`;
-
-
-
-
-class binder_comp_BinderComponent {
-    constructor(option) {
-        this.elem = option.elem;
-        this.sliderElem = this.elem.querySelector(`.slider`);
-        this.thumbElem = this.elem.querySelector(`.slider__thumb`);
-
-        this.sliderComponent = new Slider({elem: this.elem});
-        this.numComponent = new NumericInput({elem: this.elem.querySelector(`.slider_show`)});
-
-        this.setValueInInput = this.setValueInInput.bind(this);
-        this.setThumb = this.setThumb.bind(this);
-        this.halfVolume = this.halfVolume.bind(this);
-
-        this.elem.addEventListener(`setting`, this.setValueInInput);
-        this.elem.addEventListener(`setlength`, this.setThumb);
-        this.elem.addEventListener(`click`, this.halfVolume);
-    }
-
-    setValueInInput(event) {
-        this.elem.querySelector(`.slider_show`).value = event.detail.value;
-    }
-
-    setThumb(event) {
-        this.elem.querySelector(`.slider__thumb`).style.left = event.detail.length;
-    }
-
-    halfVolume(event) {
-        this.target = event.target;
-        if (!this.target.classList.contains(`slider_but`)) return;
-        this.sliderComponent.setValue((this.sliderElem.offsetWidth - this.thumbElem.offsetWidth) / 2);
-    }
-
-}
-/* harmony export (immutable) */ __webpack_exports__["BinderComponent"] = binder_comp_BinderComponent;
-
-
-new binder_comp_BinderComponent({elem: document.querySelector(`.box_slider`)});
-
 
 /***/ }),
-/* 1 */
+/* 3 */
+/*!************************!*\
+  !*** ../style/src.css ***!
+  \************************/
+/*! no static exports found */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
-/******/ ]);
+],[0]);

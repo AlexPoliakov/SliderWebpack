@@ -1,6 +1,6 @@
-`use strict`;
+'use strict';
 
-export default class NumericInput {
+module.exports = class NumericInput {
     constructor(options) {
         this.elem = options.elem;
         this.slider = document.querySelector(`.slider`);
