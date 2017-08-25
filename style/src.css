@@ -17,6 +17,7 @@ body {
 
 .title {
     text-align: center;
+    color: indianred;
 }
 
 .slider {
@@ -84,4 +85,5 @@ body {
             inset rgba(0,0,0,.5) -3px -3px 8px,
             inset rgba(255,255,255,.9) 3px 3px 8px,
             rgba(0,0,0,.8) 3px 3px 8px -3px;
+    color: indianred;
 }

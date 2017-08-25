@@ -6,6 +6,7 @@ const webpack = require('webpack');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const PATHS = {
     app: path.join(__dirname, 'src'),
@@ -18,7 +19,7 @@ const developmentConfig = {
     context: PATHS.app,
 
     entry: {
-        app: './binder_comp.js',
+        app: './script/binder_comp.js',
     },
 
     output: {
@@ -28,7 +29,7 @@ const developmentConfig = {
 
     watch: true,
 
-    devtool: 'inline-source-map',
+    devtool: 'cheap-module-eval-source-map',
 
     devServer: {
         open: true,
@@ -70,15 +71,17 @@ const developmentConfig = {
             uglifyOptions: {
                 ie8: false,
                 ecma: 8,
-            },
-            parallel: {
-                cache: true,
-                workers: 2
-            },
-            compress: {},
-            sourceMap: true,
-            warnings: true,
-            output: {}
+                parallel: {
+                    cache: true,
+                    workers: 2
+                },
+                compress: {
+                    warnings: true
+                },
+                sourceMap: true,
+                warnings: true,
+                output: {}
+            }
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
@@ -97,7 +100,7 @@ const productionConfig = {
     context: PATHS.app,
 
     entry: {
-        app: './binder_comp.js',
+        app: './script/binder_comp.js',
     },
 
     output: {
@@ -106,6 +109,8 @@ const productionConfig = {
     },
 
     watch: false,
+
+    devtool: 'hidden-source-map',
 
     module: {
         rules: [
@@ -147,7 +152,9 @@ const productionConfig = {
                 cache: true,
                 workers: 2
             },
-            compress: {},
+            compress: {
+                warnings: false
+            },
             warnings: false,
             sourceMap: false,
             output: {}
@@ -164,6 +171,7 @@ const productionConfig = {
         }),
 
         new webpack.optimize.ModuleConcatenationPlugin(),
+        new CleanWebpackPlugin(PATHS.dist)
     ]
 };
 
