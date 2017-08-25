@@ -5,6 +5,9 @@
     "serv": "static build"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
     "node-static": "^0.7.9",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"

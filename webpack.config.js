@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const config = {
     context: __dirname + '/src',
@@ -39,6 +40,15 @@ const config = {
                         'postcss-loader'
                     ]
                 })
+            },
+
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: 'babel-loader',
+                    options: { presets: ['es2015'] }
+                }]
             }
         ]
     },
@@ -48,6 +58,19 @@ const config = {
             title: 'Hot Module Replacement',
             hash: true,
             template: 'index.html'
+        }),
+
+        new UglifyJSPlugin({
+            uglifyOptions: {
+                ie8: false,
+                ecma: 8,
+                compress: {},
+                warnings: false
+            },
+            parallel: {
+                cache: true,
+                workers: 2
+            }
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
