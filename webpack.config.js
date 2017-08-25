@@ -1,7 +1,9 @@
 `use strict`;
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const DashboardPlugin = require('webpack-dashboard/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     context: __dirname + '/src',
@@ -10,13 +12,18 @@ const config = {
     },
     output: {
         path: __dirname + '/dist',
-        publicPath: "/assets/",
-        filename: '[name].js',
+        publicPath: "",
+        filename: '[name]-bundle.js',
     },
+
+    watch: true,
 
     devServer: {
         open: true,
-        contentBase: __dirname + '',
+        contentBase: __dirname + '/dist',
+        hot: true,
+        port: 10000,
+        stats: 'errors-only'
     },
 
     module: {
@@ -33,23 +40,25 @@ const config = {
             }
         ]
     },
+
     plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Hot Module Replacement',
+            hash: true,
+            template: 'index.html'
+        }),
+
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             filename: 'vendor-[hash].min.js',
         }),
 
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-                drop_console: false,
-            }
-        }),
-
         new ExtractTextPlugin({
-            filename: 'build.min.css',
+            filename: '[name].min.css',
             allChunks: true,
         }),
+
+        new webpack.NamedModulesPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new DashboardPlugin(),
         new webpack.HotModuleReplacementPlugin(),

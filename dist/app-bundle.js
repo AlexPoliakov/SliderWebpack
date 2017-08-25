@@ -1,77 +1,34 @@
-webpackJsonp([0],[
-/* 0 */
+webpackJsonp([0],{
+
+/***/ "../style/src.css":
 /*!************************!*\
-  !*** ./binder_comp.js ***!
+  !*** ../style/src.css ***!
   \************************/
+/*! no static exports found */
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./binder_comp.js":
+/*!************************************!*\
+  !*** ./binder_comp.js + 2 modules ***!
+  \************************************/
 /*! exports provided:  */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Module is an entry point */
+/*! ModuleConcatenation bailout: Cannot concat with ../style/src.css (<- Module is not an ECMAScript module) */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__slider_js__ = __webpack_require__(/*! ./slider.js */ 1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__slider_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__slider_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__num_slider_js__ = __webpack_require__(/*! ./num_slider.js */ 2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__num_slider_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__num_slider_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_src_css__ = __webpack_require__(/*! ../style/src.css */ 3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_src_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__style_src_css__);
+
+// CONCATENATED MODULE: ./slider.js
 
 
-
-
-
-class BinderComponent {
-    constructor(option) {
-        this.elem = option.elem;
-        this.sliderElem = this.elem.querySelector(`.slider`);
-        this.thumbElem = this.elem.querySelector(`.slider__thumb`);
-
-        this.sliderComponent = new __WEBPACK_IMPORTED_MODULE_0__slider_js___default.a({elem: this.elem});
-        this.numComponent = new __WEBPACK_IMPORTED_MODULE_1__num_slider_js___default.a({elem: this.elem.querySelector(`.slider_show`)});
-
-        this.setValueInInput = this.setValueInInput.bind(this);
-        this.setThumb = this.setThumb.bind(this);
-        this.halfVolume = this.halfVolume.bind(this);
-
-        this.elem.addEventListener(`setting`, this.setValueInInput);
-        this.elem.addEventListener(`setlength`, this.setThumb);
-        this.elem.addEventListener(`click`, this.halfVolume);
-    }
-
-    setValueInInput(event) {
-        this.elem.querySelector(`.slider_show`).value = event.detail.value;
-    }
-
-    setThumb(event) {
-        this.elem.querySelector(`.slider__thumb`).style.left = event.detail.length;
-    }
-
-    halfVolume(event) {
-        this.target = event.target;
-        if (!this.target.classList.contains(`slider_but`)) return;
-        this.sliderComponent.setValue((this.sliderElem.offsetWidth - this.thumbElem.offsetWidth) / 2);
-    }
-
-}
-
-new BinderComponent({elem: document.querySelector(`.box_slider`)});
-
-
-/***/ }),
-/* 1 */
-/*!*******************!*\
-  !*** ./slider.js ***!
-  \*******************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = class Slider {
+class Slider {
     constructor(options) {
         this._elem = options.elem;
         this._elemCapture = this._elemCapture.bind(this);
@@ -158,21 +115,10 @@ module.exports = class Slider {
 }
 
 
-
-/***/ }),
-/* 2 */
-/*!***********************!*\
-  !*** ./num_slider.js ***!
-  \***********************/
-/*! no static exports found */
-/*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
+// CONCATENATED MODULE: ./num_slider.js
 
 
-module.exports = class NumericInput {
+class NumericInput {
     constructor(options) {
         this.elem = options.elem;
         this.slider = document.querySelector(`.slider`);
@@ -215,17 +161,54 @@ module.exports = class NumericInput {
 }
 
 
+// EXTERNAL MODULE: ../style/src.css
+var src = __webpack_require__("../style/src.css");
+var src_default = /*#__PURE__*/__webpack_require__.n(src);
 
-/***/ }),
-/* 3 */
-/*!************************!*\
-  !*** ../style/src.css ***!
-  \************************/
-/*! no static exports found */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-/***/ (function(module, exports) {
+// CONCATENATED MODULE: ./binder_comp.js
 
-// removed by extract-text-webpack-plugin
+
+
+
+
+
+class binder_comp_BinderComponent {
+    constructor(option) {
+        this.elem = option.elem;
+        this.sliderElem = this.elem.querySelector(`.slider`);
+        this.thumbElem = this.elem.querySelector(`.slider__thumb`);
+
+        this.sliderComponent = new Slider({elem: this.elem});
+        this.numComponent = new NumericInput({elem: this.elem.querySelector(`.slider_show`)});
+
+        this.setValueInInput = this.setValueInInput.bind(this);
+        this.setThumb = this.setThumb.bind(this);
+        this.halfVolume = this.halfVolume.bind(this);
+
+        this.elem.addEventListener(`setting`, this.setValueInInput);
+        this.elem.addEventListener(`setlength`, this.setThumb);
+        this.elem.addEventListener(`click`, this.halfVolume);
+    }
+
+    setValueInInput(event) {
+        this.elem.querySelector(`.slider_show`).value = event.detail.value;
+    }
+
+    setThumb(event) {
+        this.elem.querySelector(`.slider__thumb`).style.left = event.detail.length;
+    }
+
+    halfVolume(event) {
+        this.target = event.target;
+        if (!this.target.classList.contains(`slider_but`)) return;
+        this.sliderComponent.setValue((this.sliderElem.offsetWidth - this.thumbElem.offsetWidth) / 2);
+    }
+
+}
+
+new binder_comp_BinderComponent({elem: document.querySelector(`.box_slider`)});
+
 
 /***/ })
-],[0]);
+
+},["./binder_comp.js"]);

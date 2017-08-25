@@ -10,7 +10,6 @@ body {
     outline: 0 !important;
 }
 
-
 .box_slider {
     width: 300px;
     margin: 50px auto;
@@ -85,5 +84,4 @@ body {
             inset rgba(0,0,0,.5) -3px -3px 8px,
             inset rgba(255,255,255,.9) 3px 3px 8px,
             rgba(0,0,0,.8) 3px 3px 8px -3px;
-
 }

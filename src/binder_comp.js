@@ -1,6 +1,7 @@
 'use strict';
-import Slider from './slider.js';
-import NumericInput from './num_slider.js'
+
+import {Slider} from './slider.js';
+import {NumericInput} from './num_slider.js'
 import '../style/src.css';
 
 class BinderComponent {

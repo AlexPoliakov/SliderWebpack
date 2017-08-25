@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = class Slider {
+class Slider {
     constructor(options) {
         this._elem = options.elem;
         this._elemCapture = this._elemCapture.bind(this);
@@ -82,7 +82,7 @@ module.exports = class Slider {
             left: box.left + pageXOffset,
             right: box.right + pageXOffset
         };
-
     }
 }
 
+export {Slider};

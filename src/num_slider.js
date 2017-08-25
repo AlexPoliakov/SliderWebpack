@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = class NumericInput {
+class NumericInput {
     constructor(options) {
         this.elem = options.elem;
         this.slider = document.querySelector(`.slider`);
@@ -42,3 +42,4 @@ module.exports = class NumericInput {
     }
 }
 
+export {NumericInput};
