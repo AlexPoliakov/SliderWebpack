@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack",
-    "serv": "static build"
+    "start": "webpack --env development",
+    "build": "webpack --env production",
+    "serv": "webpack-dev-server --env development"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
