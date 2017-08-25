@@ -18,6 +18,8 @@ const config = {
 
     watch: true,
 
+    devtool: 'inline-source-map',
+
     devServer: {
         open: true,
         contentBase: __dirname + '/dist',
