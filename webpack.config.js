@@ -70,13 +70,15 @@ const developmentConfig = {
             uglifyOptions: {
                 ie8: false,
                 ecma: 8,
-                compress: {},
-                warnings: true
             },
             parallel: {
                 cache: true,
                 workers: 2
-            }
+            },
+            compress: {},
+            sourceMap: true,
+            warnings: true,
+            output: {}
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
@@ -140,13 +142,15 @@ const productionConfig = {
             uglifyOptions: {
                 ie8: false,
                 ecma: 8,
-                compress: {},
-                warnings: true
             },
             parallel: {
                 cache: true,
                 workers: 2
-            }
+            },
+            compress: {},
+            warnings: false,
+            sourceMap: false,
+            output: {}
         }),
 
         new ExtractTextPlugin({
@@ -159,7 +163,6 @@ const productionConfig = {
             filename: 'script/vendor.min.js',
         }),
 
-        new webpack.NamedModulesPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin(),
     ]
 };
