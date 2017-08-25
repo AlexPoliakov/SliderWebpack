@@ -1,8 +1,8 @@
 'use strict';
 
-import {Slider} from './slider.js';
-import {NumericInput} from './num_slider.js'
-import '../style/src.css';
+import {Slider} from './script/slider.js';
+import {NumericInput} from './script/num_slider.js'
+import './style/src.css';
 
 class BinderComponent {
     constructor(option) {
