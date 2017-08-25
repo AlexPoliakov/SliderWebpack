@@ -61,7 +61,7 @@ const developmentConfig = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Develop',
+            title: 'Develop & Hot Module Replacement',
             hash: true,
             template: 'index.html'
         }),
@@ -131,7 +131,7 @@ const productionConfig = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Hot Module Replacement',
+            title: 'Production',
             hash: false,
             template: 'index.html'
         }),
